@@ -18,7 +18,9 @@ pub fn roundf(mut x: f32) -> f32 {
     if i >> 31 != 0 {
         x = -x;
     }
-    y = x + TOINT - TOINT - x;
+    // use to_bits and from_bits to force rounding to storage format on
+    // x87.
+    y = f32::from_bits((x + TOINT).to_bits()) - TOINT - x;
     if y > 0.5f32 {
         y = y + x - 1.0;
     } else if y <= -0.5f32 {
