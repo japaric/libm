@@ -26,10 +26,11 @@ musl-reference-tests = ['rand']
 members = [
   "crates/compiler-builtins-smoke-test",
   "crates/libm-bench",
+  "crates/libm-c-abi"
 ]
 
 [dev-dependencies]
-no-panic = "0.1.8"
+no-panic = "0.1.15"
 
 [build-dependencies]
-rand = { version = "0.6.5", optional = true }
+rand = { version = "0.8.3", optional = true }
